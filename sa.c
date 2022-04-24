@@ -7,6 +7,7 @@ void ft_sa(t_list *stack_a)
 	temp = stack_a;
 	stack_a = stack_a->next;
 	stack_a->next = temp;
+	printf("%d->\n",stack_a->content);
 }
 void ft_sb(t_list *stack_b)
 {
@@ -38,6 +39,7 @@ int main (int ac, char **av)
 		i++;
 	}
 	ft_sa(stack_a);
-	//printf("%d->",stack_a->content);
+	//ft_sa(stack_a);
+	printf("%d->",stack_a->content);
 	return (0);
 }
