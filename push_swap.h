@@ -19,4 +19,5 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 void ft_creatlst(t_list **stack_a, int t);
 void	ft_ra(t_list **stack_a);
 void	ft_print(t_list *stack_a);
+void sa(t_list **stack_a);
 #endif

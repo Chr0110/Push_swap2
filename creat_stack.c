@@ -5,7 +5,7 @@ void ft_creatlst(t_list **stack_a, int t)
 	t_list *new;
 	new = malloc(sizeof(t_list));
 	new->content = t;
-	new->next = (*stack_a);
+	new->next = NULL;
 	ft_lstadd_back(stack_a, new);
 	return ;
 }
@@ -20,7 +20,6 @@ void ft_creatlst(t_list **stack_a, int t)
 // 		ft_creatlst(&stack_a, atoi(av[i]));
 // 		i++;
 // 	}
-// 	//ft_sa(&stack_a);
-// 	printf("%d->",stack_a->content);
+// 	ft_print(stack_a);
 // 	return (0);
 // }

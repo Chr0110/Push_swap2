@@ -1,10 +1,27 @@
-void ft_sa(t_list **stack_a)
+ #include "push_swap.h"
+void sa(t_list **stack_a)
 {
 	t_list *temp;
-	if (!(*stack_a) || (*stack_a)->content == (*stack_a)->next->content || !(*stack_a)->next)
-		return ;
+	t_list *temp2;
 	temp = *stack_a;
 	*stack_a = (*stack_a)->next;
-	(*stack_a)->next = temp;
-	//printf("%d->\n",(*stack_a)->content);
+	temp2 = *stack_a;
+	*stack_a = (*stack_a)->next;
+	temp2->next = temp;
+	temp->next = *stack_a;
+	*stack_a = temp2;
+}
+
+int main (int ac, char **av)
+{
+	t_list *stack_a;
+	int i;
+	i = 1;
+	while (i < ac)
+	{
+		ft_creatlst(&stack_a, atoi(av[i]));
+		i++;
+	}
+	sa(&stack_a);
+	ft_print(stack_a);
 }
