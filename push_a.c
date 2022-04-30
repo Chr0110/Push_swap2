@@ -26,7 +26,6 @@ int main (int ac, char **av)
 	}
 	ft_pa(&stack_b,&stack_a);
 	ft_pa(&stack_b,&stack_a);
-	ft_pa(&stack_b,&stack_a);
 	ft_print(stack_a);
 	return (0);
 }
