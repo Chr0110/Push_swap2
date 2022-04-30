@@ -1,6 +1,8 @@
- #include "push_swap.h"
+#include "push_swap.h"
 void sa(t_list **stack_a)
 {
+	if (!(*stack_a) || ft_lstsize(*stack_a) == 1)
+		return ;
 	t_list *temp;
 	t_list *temp2;
 	temp = *stack_a;

@@ -1,5 +1,6 @@
-void ft_ss(**stack_a, **stack_b)
+#include "push_swap.h"
+void ss(t_list **stack_a,t_list **stack_b)
 {
-    ft_sa(&stack_a);
-    ft_sb(&stack_b);
+    sa(&stack_a);
+    sb(&stack_b);
 }

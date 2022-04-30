@@ -1,10 +1,15 @@
-void ft_sa(t_list **stack_b)
+#include "push_swap.h"
+void sb(t_list **stack_b)
 {
-	t_list *temp;
-	if (!(*stack_b) || (*stack_b)->content == (*stack_b)->next->content || !(*stack_b)->next)
+	if (!(*stack_b) || ft_lstsize(*stack_b) == 1)
 		return ;
+	t_list *temp;
+	t_list *temp2;
 	temp = *stack_b;
 	*stack_b = (*stack_b)->next;
-	(*stack_b)->next = temp;
-	//printf("%d->\n",(*stack_b)->content);
+	temp2 = *stack_b;
+	*stack_b = (*stack_b)->next;
+	temp2->next = temp;
+	temp->next = *stack_b;
+	*stack_b = temp2;
 }
