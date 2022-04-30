@@ -6,7 +6,7 @@ void ft_pa(t_list **stack_b,t_list **stack_a)
 	t_list *temp;
 	temp = *stack_b;
 	(*stack_b) = (*stack_b)->next;
-	temp->next = NULL;
+	temp->next = *stack_a;
 	*stack_a = temp;
 }
 int main (int ac, char **av)
@@ -24,6 +24,8 @@ int main (int ac, char **av)
 		ft_creatlst(&stack_b, atoi(av[i]));
 		i++;
 	}
+	ft_pa(&stack_b,&stack_a);
+	ft_pa(&stack_b,&stack_a);
 	ft_pa(&stack_b,&stack_a);
 	ft_print(stack_a);
 	return (0);
