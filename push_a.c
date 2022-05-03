@@ -1,5 +1,6 @@
 #include "push_swap.h"
-void ft_pa(t_list **stack_b,t_list **stack_a)
+
+void	ft_pa(t_list **stack_b,t_list **stack_a)
 {
 	if (!(*stack_b))
 		return ;
@@ -9,6 +10,7 @@ void ft_pa(t_list **stack_b,t_list **stack_a)
 	temp->next = *stack_a;
 	*stack_a = temp;
 }
+
 int main (int ac, char **av)
 {
 	int i;

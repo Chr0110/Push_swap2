@@ -1,4 +1,5 @@
 #include "push_swap.h"
+
 void	ft_print(t_list *stack_a)
 {
 	if (!stack_a)

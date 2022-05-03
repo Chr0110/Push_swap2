@@ -38,7 +38,8 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	}
 	return ;
 }
-void ft_creatlst(t_list **stack_a, int t)
+
+void	ft_creatlst(t_list **stack_a, int t)
 {
 	t_list *new;
 	new = malloc(sizeof(t_list));
@@ -47,6 +48,7 @@ void ft_creatlst(t_list **stack_a, int t)
 	ft_lstadd_back(stack_a, new);
 	return ;
 }
+
 // int main (int ac, char **av)
 // {
 // 	int i;

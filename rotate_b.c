@@ -1,4 +1,5 @@
 #include "push_swap.h"
+
 void	rb(t_list **stack_b)
 {
 	t_list *temp;

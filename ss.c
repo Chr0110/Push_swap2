@@ -1,4 +1,5 @@
 #include "push_swap.h"
+
 void ss(t_list **stack_a,t_list **stack_b)
 {
 	if (!(*stack_a) && !(*stack_b))
@@ -9,6 +10,7 @@ void ss(t_list **stack_a,t_list **stack_b)
 		sb(stack_b);
 	return ;
 }
+
 // int main (int ac, char **av)
 // {
 // 	t_list *stack_a;

@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void    rrb(t_list **stack_b)
+void	rrb(t_list **stack_b)
 {
 	if (ft_lstsize(*stack_b) == 1)
 		return;
@@ -17,6 +17,7 @@ void    rrb(t_list **stack_b)
 	temp2->next = NULL;
 	*stack_b = first;
 }
+
 // int main (int ac, char **av)
 // {
 //     t_list *stack_b;

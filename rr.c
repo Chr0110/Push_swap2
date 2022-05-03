@@ -1,8 +1,8 @@
 #include "push_swap.h"
 
-void    rr(t_list **stack_a, t_list **stack_b)
+void	rr(t_list **stack_a, t_list **stack_b)
 {
-    	if (!(*stack_a) && !(*stack_b))
+		if (!(*stack_a) && !(*stack_b))
 		return ;
 	if(*stack_a && ft_lstsize(*stack_a) != 1)
 		ra(stack_a);
@@ -10,6 +10,7 @@ void    rr(t_list **stack_a, t_list **stack_b)
 		rb(stack_b);
 	return ;
 }
+
 int main (int ac, char **av)
 {
 	t_list *stack_a;
