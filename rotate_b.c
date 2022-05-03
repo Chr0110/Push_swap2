@@ -10,17 +10,17 @@ void	rb(t_list **stack_b)
 	temp->next = NULL;
 }
 
-// int main (int ac, char **av)
-// {
-// 	t_list *stack_b;
-// 	int i;
-// 	i = 1;
-// 	while (i < ac)
-// 	{
-// 		ft_creatlst(&stack_b, atoi(av[i]));
-// 		i++;
-// 	}
-// 	ft_rb(&stack_b);
-// 	ft_print(stack_b);
-// 	return (0);
-// }
+int main (int ac, char **av)
+{
+	t_list *stack_b;
+	int i;
+	i = 1;
+	while (i < ac)
+	{
+		ft_creatlst(&stack_b, atoi(av[i]));
+		i++;
+	}
+	rb(&stack_b);
+	ft_print(stack_b);
+	return (0);
+}
