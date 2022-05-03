@@ -1,5 +1,5 @@
 #include "push_swap.h"
-void	ft_ra(t_list **stack_a)
+void	ra(t_list **stack_a)
 {
 	t_list *temp;
 	t_list *last;
