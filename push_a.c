@@ -11,23 +11,23 @@ void	ft_pa(t_list **stack_b,t_list **stack_a)
 	*stack_a = temp;
 }
 
-int main (int ac, char **av)
-{
-	int i;
-	t_list *stack_b;
-	t_list *stack_a;
-	stack_a = NULL;
-	stack_b = NULL;
-	i = 1;
-	if (ac < 2)
-		return (0);
-	while (i < ac)
-	{
-		ft_creatlst(&stack_b, atoi(av[i]));
-		i++;
-	}
-	ft_pa(&stack_b,&stack_a);
-	ft_pa(&stack_b,&stack_a);
-	ft_print(stack_a);
-	return (0);
-}
+// int main (int ac, char **av)
+// {
+// 	int i;
+// 	t_list *stack_b;
+// 	t_list *stack_a;
+// 	stack_a = NULL;
+// 	stack_b = NULL;
+// 	i = 1;
+// 	if (ac < 2)
+// 		return (0);
+// 	while (i < ac)
+// 	{
+// 		ft_creatlst(&stack_b, atoi(av[i]));
+// 		i++;
+// 	}
+// 	ft_pa(&stack_b,&stack_a);
+// 	ft_pa(&stack_b,&stack_a);
+// 	ft_print(stack_a);
+// 	return (0);
+// }
