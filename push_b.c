@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	ft_pb(t_list **stack_a,t_list **stack_b)
+void	pb(t_list **stack_a,t_list **stack_b)
 {
 	if (!(*stack_a))
 		return ;

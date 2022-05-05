@@ -2,7 +2,7 @@
 
 void	rra(t_list **stack_a)
 {
-	if (ft_lstsize(*stack_a) == 1)
+	if (ft_lstsize(*stack_a) <= 1 )
 		return;
 	t_list *temp;
 	t_list *temp2;
