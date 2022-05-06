@@ -24,6 +24,10 @@ FILES = creat_stack.c\
 		swap_a.c\
 		swap_b.c\
 		psmain.c\
+		two.c\
+		three.c\
+		three1.c\
+		three2.c\
 
 OBJS = $(subst .c,.o,$(FILES))
 
