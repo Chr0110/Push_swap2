@@ -1,4 +1,5 @@
 #include "push_swap.h"
+
 int main (int ac, char **av)
 {
 	int i;
@@ -9,8 +10,11 @@ int main (int ac, char **av)
 	t_list *stack_c;
 	stack_c = NULL;
 	i = 1;
-	while (i++ < ac)
+	while (i < ac)
+    {
 		ft_creatlst(&stack_a, atoi(av[i]));
+        i++;
+    }
     if (ft_lstsize(stack_a) == 2)
     {
         two(&stack_a);
@@ -20,5 +24,6 @@ int main (int ac, char **av)
 	three(&stack_a);
 	while (ft_lstsize(stack_b)!= 0)
 		pa(&stack_b, &stack_a);
-	return (0);
+    //ft_print(stack_a);
+	return(0);
 }
