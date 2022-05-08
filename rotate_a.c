@@ -9,6 +9,7 @@ void	ra(t_list **stack_a)
 	last = ft_lstlast(*stack_a);
 	last->next = temp;
 	temp->next = NULL;
+	printf("ra\n");
 }
 
 // int main (int ac, char **av)

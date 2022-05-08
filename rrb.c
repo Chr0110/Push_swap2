@@ -16,6 +16,7 @@ void	rrb(t_list **stack_b)
 	first->next = temp;
 	temp2->next = NULL;
 	*stack_b = first;
+	printf("rrb\n");
 }
 
 // int main (int ac, char **av)

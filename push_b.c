@@ -8,8 +8,8 @@ void	pb(t_list **stack_a,t_list **stack_b)
 	temp = *stack_a;
 	(*stack_a) = (*stack_a)->next;
 	temp->next = *stack_b;
-	//printf("m here\n\n");
 	*stack_b = temp;
+	printf("pb\n");
 }
 
 // int main (int ac, char **av)

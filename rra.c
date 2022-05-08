@@ -16,6 +16,7 @@ void	rra(t_list **stack_a)
 	first->next = temp;
 	temp2->next = NULL;
 	*stack_a = first;
+	printf("rra\n");
 }
 
 // int main (int ac, char **av)

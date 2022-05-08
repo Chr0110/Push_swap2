@@ -1,11 +1,32 @@
 #include "push_swap.h"
 
-void    three(t_list **stack_a, t_list **stack_b)
+void    three(t_list **stack_a)
 {
-	if((*stack_a)->content <= (*stack_a)->next->content)
-		three1(stack_a, stack_b);
-	if((*stack_a)->content >= (*stack_a)->next->content)
-		three2(stack_a, stack_b);
+    int    first;
+    int    secend;
+    int    last;
+
+    first = (*stack_a)->content;
+    secend = (*stack_a)->next->content;
+    if ((ft_lstsize(*stack_a) == 2) && (first > secend))
+        sa(stack_a);
+    last = (*stack_a)->next->next->content;
+    if ((first > secend) && (last > secend) && (last > first))
+        sa(stack_a);
+    else if ((first > secend) && (secend > last) && (last < first))
+    {
+        sa(stack_a);
+        rra(stack_a);
+    }
+    else if ((first > secend) && (secend < first) && (last < first))
+        ra(stack_a);
+    else if ((first < secend) && (secend > last) && (last > first))
+    {
+        sa(stack_a);
+        ra(stack_a);
+    }
+    else if ((first < secend) && (secend > first) && (last < first))
+        rra(stack_a);
 }
 // int main (int ac, char **av)
 // {

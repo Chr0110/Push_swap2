@@ -9,7 +9,7 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-int	ft_lstsize(t_list *lst);
+int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
@@ -29,7 +29,10 @@ void    rrb(t_list **stack_b);
 void	pa(t_list **stack_b,t_list **stack_a);
 void	pb(t_list **stack_a,t_list **stack_b);
 void    two(t_list **stack_a);
-void    three(t_list **stack_a, t_list **stack_b);
+void    three(t_list **stack_a);
 void    three1(t_list **stack_a, t_list **stack_b);
 void    three2(t_list **stack_a, t_list **stack_b);
+void    sort10(t_list **stack_a, t_list **stack_b);
+int		index10(t_list *stack_a);
+
 #endif

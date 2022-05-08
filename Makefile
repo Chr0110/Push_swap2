@@ -28,12 +28,13 @@ FILES = creat_stack.c\
 		three.c\
 		three1.c\
 		three2.c\
+		for10.c\
 
 OBJS = $(subst .c,.o,$(FILES))
 
 all : $(NAME)
 $(NAME) : $(OBJS)
-	$(CC) -fsanitize=address -g -o $(NAME) $(OBJECT)
+	$(CC) -fsanitize=address -g3 -o $(NAME) $(OBJECT)
 
 clean :
 	$(RM) $(OBJECT)

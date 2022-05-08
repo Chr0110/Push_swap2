@@ -8,7 +8,7 @@ void ss(t_list **stack_a,t_list **stack_b)
 		sa(stack_a);
 	if(*stack_b && ft_lstsize(*stack_b) != 1)
 		sb(stack_b);
-	return ;
+	printf("ss\n");
 }
 
 // int main (int ac, char **av)

@@ -8,7 +8,7 @@ void	rrr(t_list **stack_a, t_list **stack_b)
 		rra(stack_a);
 	if (*stack_b && ft_lstsize(*stack_b) != 1)
 		rrb(stack_b);
-	return ;
+	printf("rrb\n");
 }
 // int main (int ac, char **av)
 // {
