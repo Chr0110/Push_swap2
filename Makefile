@@ -26,9 +26,8 @@ FILES = creat_stack.c\
 		psmain.c\
 		two.c\
 		three.c\
-		three1.c\
-		three2.c\
 		for10.c\
+		for100.c\
 
 OBJS = $(subst .c,.o,$(FILES))
 
