@@ -5,6 +5,7 @@ void    three(t_list **stack_a)
 	int    first;
 	int    second;
 	int    last;
+
 	first = (*stack_a)->content;
 	second = (*stack_a)->next->content;
 	last = (*stack_a)->next->next->content;
@@ -23,5 +24,6 @@ void    three(t_list **stack_a)
 	{
 		rra(stack_a);
 		sa(stack_a);
-	}	
+	}
+	return ;
 }

@@ -1,5 +1,59 @@
 #include "push_swap.h"
 
+int	index100again(t_list *stack_b)
+{
+	int max;
+	int ind;
+	t_list *x;
+	t_list *temp;
+	ind = 1;
+	temp = stack_b;
+	max = (stack_b)->content;
+	while (ft_lstsize(stack_b) != 1)
+	{
+		x = (stack_b)->next;
+		if (max <= x->content)
+		{
+			max = x->content;
+			stack_b = stack_b->next;
+		}
+		else
+			stack_b = stack_b->next;
+	}
+	while (max != temp->content)
+	{
+		ind++;
+		temp = temp->next;
+	}
+	return (ind);
+}
+
+void	sort100again(t_list **stack_b, t_list **stack_a)
+{
+	int len;
+	int index;
+	int j;
+
+	len = ft_lstsize(*stack_b);
+	index = index100again(*stack_b);
+	while (len > 1)
+	{
+		j = len - index + 1;
+		if (index < (len / 2))
+			while (index-- > 1)
+				rb(stack_b);
+		else
+		{
+			while(j-->0)
+				rrb(stack_b);
+		}
+		pa(stack_b, stack_a);
+		len = ft_lstsize(*stack_b);
+		index = index100again(*stack_b);
+	}	
+	pa(stack_b, stack_a);
+}
+
 int	howmuch100(t_list *stack_a, int j)
 {
 	int i;
@@ -25,23 +79,31 @@ int	howmuch100(t_list *stack_a, int j)
 	return (i);
 }
 
-int	index100(t_list *stack_a, int j)
+int	index100(t_list *stack_a, int key)
 {
 	int ind;
 	int small;
-
+	int rep;
+	int j;
+	j = key;
 	ind = 1;
+	rep = howmuch100(stack_a, key);
 	small = stack_a->content;
 	while (ft_lstsize(stack_a) != 1)
 	{
-		if (small > j)
+		while (rep-- > 0)
 		{
-			stack_a = stack_a->next;
-			ind++;
+			if (small > key)
+			{
+				stack_a = stack_a->next;
+				ind++;
+			}
+			else
+				return(ind);
+			small = stack_a->content;
 		}
-		else
-			break;
-		small = stack_a->content;
+		rep = howmuch100(stack_a, key);
+		key = key + j;
 	}
 	return (ind);
 }
@@ -51,49 +113,24 @@ void	sort100(t_list **stack_a, t_list **stack_b)
 	int len;
 	int index;
 	int j;
-	int k;
-	int h;
+	int key;
 
 	len = ft_lstsize(*stack_a);
-	k = ft_lstsize(*stack_a) / 4;
-	h = howmuch100(*stack_a, k);
+	key = ft_lstsize(*stack_a) / 4;
 	while (ft_lstsize(*stack_a) != 0)
 	{
-		//printf("%d\n", k);
-		while (h-- != 0)
+		index = index100(*stack_a, key);
+		j = len - index + 1;
+		if (index < (len / 2))
+		while (index-- > 1)
+			ra(stack_a);
+		else
 		{
-			index = index100(*stack_a, k);
-			j = len - index + 1;
-			if (index < (len / 2))
-			while (index-- > 1)
-				ra(stack_a);
-			else
-			{
-				while(j-- > 0)
-					rra(stack_a);
-			}
-			pb(stack_a, stack_b);
-			len = ft_lstsize(*stack_a);
+			while(j-- > 0)
+				rra(stack_a);
 		}
-		k = k + k;
-		h = howmuch100(*stack_a, k);
-		//printf("%d\n", h);
+		pb(stack_a, stack_b);
+		len = ft_lstsize(*stack_a);
 	}
-}
-int main (int ac, char **av)
-{
-	int i;
-	t_list *stack_a;
-	stack_a = NULL;
-	t_list *stack_b;
-	stack_b = NULL;
-	i = 1;
-	while (i < ac)
-	{
-		ft_creatlst(&stack_a, atoi(av[i]));
-		i++;
-	}
-	sort100(&stack_a, &stack_b);
-	ft_print(stack_b);
-	return (0);
+	sort100again(stack_b, stack_a);
 }

@@ -26,12 +26,12 @@ void	pa(t_list **stack_b,t_list **stack_a);
 void	pb(t_list **stack_a,t_list **stack_b);
 void    two(t_list **stack_a);
 void    three(t_list **stack_a);
-void    three1(t_list **stack_a, t_list **stack_b);
-void    three2(t_list **stack_a, t_list **stack_b);
 void    sort10(t_list **stack_a, t_list **stack_b);
 int		index10(t_list *stack_a);
 int		index25(t_list *stack_a);
 void    sort100(t_list **stack_a, t_list **stack_b);
 int		howmuch100(t_list *stack_a, int j);
+int		index100again(t_list *stack_b);
+void	sort100again(t_list **stack_b, t_list **stack_a);
 
 #endif

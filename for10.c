@@ -16,13 +16,14 @@ int	index10(t_list *stack_a)
 		{
 			min = x->content;
 			stack_a = stack_a->next;
-			ind++;
 		}
 		else
-		{
 			stack_a = stack_a->next;
-			ind++;
-		}
+	}
+	while (min != temp->content)
+	{
+		ind++;
+		temp = temp->next;
 	}
 	return (ind);
 }
