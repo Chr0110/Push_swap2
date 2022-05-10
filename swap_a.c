@@ -13,19 +13,19 @@ void sa(t_list **stack_a)
 	temp2->next = temp;
 	temp->next = *stack_a;
 	*stack_a = temp2;
-	printf("sa\n");
+	//printf("sa\n");
 }
 
-int main (int ac, char **av)
-{
-	t_list *stack_a;
-	int i;
-	i = 1;
-	while (i < ac)
-	{
-		ft_creatlst(&stack_a, atoi(av[i]));
-		i++;
-	}
-	sa(&stack_a);
-	ft_print(stack_a);
-}
+// int main (int ac, char **av)
+// {
+// 	t_list *stack_a;
+// 	int i;
+// 	i = 1;
+// 	while (i < ac)
+// 	{
+// 		ft_creatlst(&stack_a, atoi(av[i]));
+// 		i++;
+// 	}
+// 	sa(&stack_a);
+// 	ft_print(stack_a);
+// }

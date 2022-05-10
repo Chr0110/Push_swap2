@@ -16,14 +16,13 @@ int	index10(t_list *stack_a)
 		{
 			min = x->content;
 			stack_a = stack_a->next;
+			ind++;
 		}
 		else
+		{
 			stack_a = stack_a->next;
-	}
-	while (min != temp->content)
-	{
-		ind++;
-		temp = temp->next;
+			ind++;
+		}
 	}
 	return (ind);
 }
@@ -33,6 +32,7 @@ void	sort10(t_list **stack_a, t_list **stack_b)
 	int len;
 	int index;
 	int j;
+
 	len = ft_lstsize(*stack_a);
 	index = index10(*stack_a);
 	while (len > 3)
@@ -52,3 +52,17 @@ void	sort10(t_list **stack_a, t_list **stack_b)
 	}
 }
 
+// int main (int ac, char **av)
+// {
+// 	int i;
+// 	t_list *stack_a;
+// 	stack_a = NULL;
+// 	i = 1;
+// 	while (i < ac)
+// 	{
+// 		ft_creatlst(&stack_a, atoi(av[i]));
+// 		i++;
+// 	}
+// 	index10(stack_a);
+// 	return (0);
+// }

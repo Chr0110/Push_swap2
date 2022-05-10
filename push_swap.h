@@ -31,6 +31,7 @@ void    three2(t_list **stack_a, t_list **stack_b);
 void    sort10(t_list **stack_a, t_list **stack_b);
 int		index10(t_list *stack_a);
 int		index25(t_list *stack_a);
-void    sort100(t_list **stack_a, t_list **stack_b);;
+void    sort100(t_list **stack_a, t_list **stack_b);
+int		howmuch100(t_list *stack_a, int j);
 
 #endif
