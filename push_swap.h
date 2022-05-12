@@ -33,5 +33,10 @@ void    sort100(t_list **stack_a, t_list **stack_b);
 int		howmuch100(t_list *stack_a, int j);
 int		index100again(t_list *stack_b);
 void	sort100again(t_list **stack_b, t_list **stack_a);
+void    sort500(t_list **stack_a, t_list **stack_b);
+int		howmuch500(t_list *stack_a, int j);
+int		index500again(t_list *stack_b);
+void	sort500again(t_list **stack_b, t_list **stack_a);
+void	sort25(t_list **stack_a, t_list **stack_b);
 
 #endif

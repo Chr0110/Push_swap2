@@ -4,6 +4,7 @@ void	ft_print(t_list *stack_a)
 {
 	if (!stack_a)
 		return ;
+	printf("\n");
 	while (stack_a->next != NULL)
 	{
 		printf(" %d ", stack_a->content);

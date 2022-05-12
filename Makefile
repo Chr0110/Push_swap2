@@ -28,6 +28,8 @@ FILES = creat_stack.c\
 		three.c\
 		for10.c\
 		for100.c\
+		sort3-4.c\
+		sort500.c\
 
 OBJS = $(subst .c,.o,$(FILES))
 

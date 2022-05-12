@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int	index100again(t_list *stack_b)
+int	index500again(t_list *stack_b)
 {
 	int max;
 	int ind;
@@ -28,14 +28,14 @@ int	index100again(t_list *stack_b)
 	return (ind);
 }
 
-void	sort100again(t_list **stack_b, t_list **stack_a)
+void	sort500again(t_list **stack_b, t_list **stack_a)
 {
 	int len;
 	int index;
 	int j;
 
 	len = ft_lstsize(*stack_b);
-	index = index100again(*stack_b);
+	index = index500again(*stack_b);
 	while (len > 1)
 	{
 		j = len - index + 1;
@@ -49,12 +49,12 @@ void	sort100again(t_list **stack_b, t_list **stack_a)
 		}
 		pa(stack_b, stack_a);
 		len = ft_lstsize(*stack_b);
-		index = index100again(*stack_b);
+		index = index500again(*stack_b);
 	}	
 	pa(stack_b, stack_a);
 }
 
-int	howmuch100(t_list *stack_a, int j)
+int	howmuch500(t_list *stack_a, int j)
 {
 	int i;
 	i = 0;
@@ -79,7 +79,7 @@ int	howmuch100(t_list *stack_a, int j)
 	return (i);
 }
 
-int	index100(t_list *stack_a, int key)
+int	index500(t_list *stack_a, int key)
 {
 	int ind;
 	int small;
@@ -87,7 +87,7 @@ int	index100(t_list *stack_a, int key)
 	int j;
 	j = key;
 	ind = 1;
-	rep = howmuch100(stack_a, key);
+	rep = howmuch500(stack_a, key);
 	small = stack_a->content;
 	while (ft_lstsize(stack_a) != 1)
 	{
@@ -102,14 +102,13 @@ int	index100(t_list *stack_a, int key)
 				return(ind);
 			small = stack_a->content;
 		}
-		rep = howmuch100(stack_a, key);
+		rep = howmuch500(stack_a, key);
 		key = key + j;
-		printf("%d\n", key);
 	}
 	return (ind);
 }
 
-void	sort100(t_list **stack_a, t_list **stack_b)
+void	sort500(t_list **stack_a, t_list **stack_b)
 {
 	int len;
 	int index;
@@ -118,10 +117,10 @@ void	sort100(t_list **stack_a, t_list **stack_b)
 	int k;
 	k = 25;
 	len = ft_lstsize(*stack_a);
-	key = ft_lstsize(*stack_a) / 5;
+	key = ft_lstsize(*stack_a) / 20;
 	while (ft_lstsize(*stack_a) != 0)
 	{
-		index = index100(*stack_a, key);
+		index = index500(*stack_a, key);
 		j = len - index + 1;
 		if (index < (len / 2))
 		while (index-- > 1)
@@ -134,5 +133,5 @@ void	sort100(t_list **stack_a, t_list **stack_b)
 		pb(stack_a, stack_b);
 		len = ft_lstsize(*stack_a);
 	}
-	sort100again(stack_b, stack_a);
+	sort500again(stack_b, stack_a);
 }

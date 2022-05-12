@@ -13,7 +13,7 @@ void sa(t_list **stack_a)
 	temp2->next = temp;
 	temp->next = *stack_a;
 	*stack_a = temp2;
-	printf("sa\n");
+	//printf("sa\n");
 }
 
 // int main (int ac, char **av)
