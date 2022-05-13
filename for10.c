@@ -39,7 +39,7 @@ void	sort10(t_list **stack_a, t_list **stack_b)
 	while (len > 3)
 	{
 		j = len - index + 1;
-		if (index < (len / 2))
+		if (index <= (len / 2))
 			while (index-- > 1)
 				ra(stack_a);
 		else

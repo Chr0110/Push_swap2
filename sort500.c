@@ -39,7 +39,7 @@ void	sort500again(t_list **stack_b, t_list **stack_a)
 	while (len > 1)
 	{
 		j = len - index + 1;
-		if (index < (len / 2))
+		if (index <= (len / 2))
 			while (index-- > 1)
 				rb(stack_b);
 		else
@@ -54,7 +54,7 @@ void	sort500again(t_list **stack_b, t_list **stack_a)
 	pa(stack_b, stack_a);
 }
 
-int	howmuch500(t_list *stack_a, int j)
+int	howmuch500(t_list *stack_a, int key)
 {
 	int i;
 	i = 0;
@@ -64,7 +64,7 @@ int	howmuch500(t_list *stack_a, int j)
 	small = stack_a->content;
 	while (len != 0 && stack_a->next != NULL)
 	{
-		if (small > j)
+		if (small > key)
 			stack_a = stack_a->next;
 		else
 		{
@@ -74,7 +74,7 @@ int	howmuch500(t_list *stack_a, int j)
 		small = stack_a->content;
 		len--;
 	}
-	if (small < j)
+	if (small < key)
 		i++;
 	return (i);
 }
@@ -85,6 +85,7 @@ int	index500(t_list *stack_a, int key)
 	int small;
 	int rep;
 	int j;
+
 	j = key;
 	ind = 1;
 	rep = howmuch500(stack_a, key);
@@ -114,15 +115,14 @@ void	sort500(t_list **stack_a, t_list **stack_b)
 	int index;
 	int j;
 	int key;
-	int k;
-	k = 25;
+
 	len = ft_lstsize(*stack_a);
-	key = ft_lstsize(*stack_a) / 20;
+	key = ft_lstsize(*stack_a) / 4;
 	while (ft_lstsize(*stack_a) != 0)
 	{
 		index = index500(*stack_a, key);
 		j = len - index + 1;
-		if (index < (len / 2))
+		if (index <= (len / 2))
 		while (index-- > 1)
 			ra(stack_a);
 		else

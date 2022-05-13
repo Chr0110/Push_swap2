@@ -12,5 +12,5 @@ void sb(t_list **stack_b)
 	temp2->next = temp;
 	temp->next = *stack_b;
 	*stack_b = temp2;
-	//printf("sb\n");
+//	printf("sb\n");
 }
