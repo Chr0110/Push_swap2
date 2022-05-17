@@ -9,7 +9,7 @@ void	pb(t_list **stack_a,t_list **stack_b)
 	(*stack_a) = (*stack_a)->next;
 	temp->next = *stack_b;
 	*stack_b = temp;
-	//printf("pb\n");
+	printf("pb\n");
 }
 
 // int main (int ac, char **av)

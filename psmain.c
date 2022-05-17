@@ -75,7 +75,7 @@ int main (int ac, char **av)
 	}
 	else if (ft_lstsize(stack_a) <= 500)
 	{
-		sort500(&stack_a, &stack_b);
+		sort500(&stack_a, &stack_b, str);
 		return (0);
 	}
 	return(0);
