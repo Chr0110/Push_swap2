@@ -25,7 +25,7 @@ void	sort_string(int *str, int ac)
 	}
 }
 
-int	ft_strlen(int *str)
+int	ft_strlen(char *str)
 {
 	int	i;
 
@@ -50,6 +50,8 @@ int main (int ac, char **av)
 	i = 1;
 	while (i < ac)
 	{
+		if (ft_check_integer(av[i]) == 1)
+			return (0);
 		ft_creatlst(&stack_a, atoi(av[i]));
 		i++;
 	}
@@ -58,6 +60,7 @@ int main (int ac, char **av)
 	if (ft_lstsize(stack_a) == 2)
 	{
 		two(&stack_a);
+		ft_print(stack_a);
 		return (0);
 	}
 	else if (ft_lstsize(stack_a) <= 10)
@@ -66,6 +69,7 @@ int main (int ac, char **av)
 		three(&stack_a);
 		while (ft_lstsize(stack_b)!= 0)
 			pa(&stack_b, &stack_a);
+		ft_print(stack_a);
 		return (0);
 	}
 	else if (ft_lstsize(stack_a) <= 100)

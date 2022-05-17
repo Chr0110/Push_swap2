@@ -42,6 +42,7 @@ void	sort500(t_list **stack_a, t_list **stack_b, int *str);
 void	sort500again(t_list **stack_b, t_list **stack_a);
 void	sort25(t_list **stack_a, t_list **stack_b);
 void	sort_string(int *str, int ac);
-int		ft_strlen(int *str);
+int		ft_strlen(char *str);
 void    copy(t_list *stack_a, int *str);
+int		ft_check_integer(char *av);
 #endif

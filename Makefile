@@ -30,6 +30,7 @@ FILES = creat_stack.c\
 		for100.c\
 		sort500.c\
 		copy_to_string.c\
+		check_int.c\
 
 OBJS = $(subst .c,.o,$(FILES))
 
