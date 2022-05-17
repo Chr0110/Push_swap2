@@ -1,3 +1,4 @@
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <stdio.h>
@@ -29,14 +30,18 @@ void    three(t_list **stack_a);
 void    sort10(t_list **stack_a, t_list **stack_b);
 int		index10(t_list *stack_a);
 int		index25(t_list *stack_a);
-void    sort100(t_list **stack_a, t_list **stack_b);
-int		howmuch100(t_list *stack_a, int j);
+//void    sort100(t_list **stack_a, t_list **stack_b);
+int		howmuch100(t_list *stack_a, int key);
 int		index100again(t_list *stack_b);
+int		index100(t_list *stack_a, int key, int *str);
 void	sort100again(t_list **stack_b, t_list **stack_a);
 void    sort500(t_list **stack_a, t_list **stack_b);
 int		howmuch500(t_list *stack_a, int j);
 int		index500again(t_list *stack_b);
 void	sort500again(t_list **stack_b, t_list **stack_a);
 void	sort25(t_list **stack_a, t_list **stack_b);
-
+void	sort_string(int *str, int ac);
+int		ft_strlen(int *str);
+void	sort100(t_list **stack_a, t_list **stack_b, int *str);
+void    copy(t_list *stack_a, int *str);
 #endif

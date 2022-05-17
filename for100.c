@@ -1,3 +1,4 @@
+
 #include "push_swap.h"
 
 int	index100again(t_list *stack_b)
@@ -52,6 +53,7 @@ void	sort100again(t_list **stack_b, t_list **stack_a)
 		index = index100again(*stack_b);
 	}	
 	pa(stack_b, stack_a);
+	return ;
 }
 
 int	howmuch100(t_list *stack_a, int key)
@@ -79,62 +81,75 @@ int	howmuch100(t_list *stack_a, int key)
 	return (i);
 }
 
-int	index100(t_list *stack_a, int key)
+int	index100(t_list *stack_a, int key, int *str)
 {
 	int ind;
 	int small;
 	int rep;
-	int j;
+	int j = 4;
 
-	j = key;
 	ind = 1;
-	rep = howmuch100(stack_a, key);
 	small = stack_a->content;
 	while (ft_lstsize(stack_a) != 1)
 	{
-		while (rep-- > 0)
+		rep = howmuch100(stack_a, key);
+		// printf("this is key %d\n", key);
+		// printf("this is rep %d\n", rep);
+		// printf("this is j %d\n", j);
+		if (small >= key)
 		{
-			if (small >= key)
-			{
-				stack_a = stack_a->next;
-				ind++;
-			}
-			else
-				return(ind);
+			stack_a = stack_a->next;
+			ind++;
+		}
+		else
+			return(ind);
+		small = stack_a->content;
+		if (rep == 0)
+		{
+			j = j - 1;
+			copy(stack_a, str);
+			key = str[ft_lstsize(stack_a) / j];
 			small = stack_a->content;
 		}
-		rep = howmuch100(stack_a, key);
-		key = key + j;
 	}
 	return (ind);
 }
 
-void	sort100(t_list **stack_a, t_list **stack_b)
+void	sort100(t_list **stack_a, t_list **stack_b, int *str)
 {
 	int len;
 	int index;
 	int j;
 	int key;
-
 	len = ft_lstsize(*stack_a);
-	key = ft_lstsize(*stack_a) / 4;
+	key = str[len / 4];
 	while (ft_lstsize(*stack_a) != 0)
 	{
-		index = index100(*stack_a, key);
+		index = index100(*stack_a, key, str);
 		j = len - index + 1;
 		if (index <= (len / 2))
-		while (index-- > 1)
-			ra(stack_a);
+			while (index-- > 1)
+				ra(stack_a);
 		else
-		{
 			while(j-- > 0)
 				rra(stack_a);
-		}
 		pb(stack_a, stack_b);
 		len = ft_lstsize(*stack_a);
-		// if (ft_lstsize(*stack_a) == 3)
-		// 	break ;
 	}
-	//three(stack_a);
-	sort100again(stack_b, stack_a);
+	ft_print(*stack_b);
+	printf("%d\n", ft_lstsize(*stack_b));
 }
+// int main (int ac, char **av)
+// {
+// 	int i;
+// 	t_list *stack_a;
+// 	stack_a = NULL;
+// 	i = 1;
+// 	while (i < ac)
+// 	{
+// 		ft_creatlst(&stack_a, atoi(av[i]));
+// 		i++;
+// 	}
+// 	printf("%d\n", howmuch100(stack_a, 52));
+// 	return (0);
+// }

@@ -2,6 +2,8 @@
 
 void	ra(t_list **stack_a)
 {
+	if (ft_lstsize(*stack_a) == 1)
+		return;
 	t_list *temp;
 	t_list *last;
 	temp = *stack_a;
@@ -9,7 +11,7 @@ void	ra(t_list **stack_a)
 	last = ft_lstlast(*stack_a);
 	last->next = temp;
 	temp->next = NULL;
-	printf("ra\n");
+	//printf("ra\n");
 }
 
 // int main (int ac, char **av)

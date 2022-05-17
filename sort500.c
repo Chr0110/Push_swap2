@@ -117,7 +117,7 @@ void	sort500(t_list **stack_a, t_list **stack_b)
 	int key;
 
 	len = ft_lstsize(*stack_a);
-	key = ft_lstsize(*stack_a) / 4;
+	key = ft_lstsize(*stack_a) / 8;
 	while (ft_lstsize(*stack_a) != 0)
 	{
 		index = index500(*stack_a, key);
