@@ -45,4 +45,5 @@ void	sort_string(int *str, int ac);
 int		ft_strlen(char *str);
 void    copy(t_list *stack_a, int *str);
 int		ft_check_integer(char *av);
+int		ft_check_dupl(t_list *stack_a);
 #endif
