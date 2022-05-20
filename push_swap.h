@@ -14,6 +14,7 @@ int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_creatlst(t_list **stack_a, int t);
+int		ft_dupl(int ac, char **av);
 void	ra(t_list **stack_a);
 void	rb(t_list **stack_b);
 void	ft_print(t_list *stack_a);
@@ -45,5 +46,4 @@ void	sort_string(int *str, int ac);
 int		ft_strlen(char *str);
 void    copy(t_list *stack_a, int *str);
 int		ft_check_integer(char *av);
-int		ft_check_dupl(t_list *stack_a);
 #endif
