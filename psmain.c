@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   psmain.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/22 01:01:15 by eradi-            #+#    #+#             */
+/*   Updated: 2022/05/22 03:35:53 by eradi-           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	sort_string(int *str, int ac)
@@ -37,51 +49,34 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-int main (int ac, char **av)
+int	main(int ac, char **av)
 {
-	int i;
-	t_list *stack_a;
-	t_list *stack_b;
-	int *str;
+	int		i;
+	t_list	*stack_a;
+	t_list	*stack_b;
+	int		*str;
 
 	stack_a = NULL;
 	stack_b = NULL;
-	str = NULL;
-	i = 1;
-	while (i < ac)
+	i = 0;
+	if (ac > 3)
 	{
-		// if (ft_check_integer(av[i]) == 1)
-		// 	return (0);
-		ft_creatlst(&stack_a, atoi(av[i]));
-		i++;
+		if (ft_dupl(ac, av) == 1)
+			return (0);
+		while (++i < ac)
+		{
+			if (ft_check_integer(av[i]) == 1)
+				return (0);
+			ft_creatlst(&stack_a, atoi(av[i]));
+		}
+		str = malloc(ft_lstsize(stack_a) * sizeof(int));
+		copy(stack_a, str);
+		if (ft_lstsize(stack_a) == 2)
+		{
+			two(&stack_a);
+			return (0);
+		}
+		ft_sort_stack(stack_a, str);
 	}
-	str = malloc(ft_lstsize(stack_a) * sizeof(int));
-	copy(stack_a, str);
-	if (ft_lstsize(stack_a) == 2)
-	{
-		two(&stack_a);
-		ft_print(stack_a);
-		return (0);
-	}
-	else if (ft_lstsize(stack_a) <= 10)
-	{
-		sort10(&stack_a, &stack_b);
-		three(&stack_a);
-		while (ft_lstsize(stack_b)!= 0)
-			pa(&stack_b, &stack_a);
-		ft_print(stack_a);
-		return (0);
-	}
-	else if (ft_lstsize(stack_a) <= 100)
-	{
-		sort100(&stack_a, &stack_b, str);
-		return (0);
-	}
-	else if (ft_lstsize(stack_a) <= 500)
-	{
-		sort500(&stack_a, &stack_b, str);
-		return (0);
-	}
-	return(0);
+	return (0);
 }
-

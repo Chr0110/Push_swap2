@@ -1,12 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   for100.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/22 01:00:46 by eradi-            #+#    #+#             */
+/*   Updated: 2022/05/22 01:16:43 by eradi-           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
 int	index100again(t_list *stack_b)
 {
-	int max;
-	int ind;
-	t_list *x;
-	t_list *temp;
+	int		max;
+	int		ind;
+	t_list	*x;
+	t_list	*temp;
 
 	ind = 1;
 	temp = stack_b;
@@ -32,9 +43,9 @@ int	index100again(t_list *stack_b)
 
 void	sort100again(t_list **stack_b, t_list **stack_a)
 {
-	int len;
-	int index;
-	int j;
+	int	len;
+	int	index;
+	int	j;
 
 	len = ft_lstsize(*stack_b);
 	index = index100again(*stack_b);
@@ -46,7 +57,7 @@ void	sort100again(t_list **stack_b, t_list **stack_a)
 				rb(stack_b);
 		else
 		{
-			while(j-->0)
+			while (j-- > 0)
 				rrb(stack_b);
 		}
 		pa(stack_b, stack_a);
@@ -59,8 +70,8 @@ void	sort100again(t_list **stack_b, t_list **stack_a)
 
 int	index100(t_list *stack_a, int key)
 {
-	int ind;
-	int small;
+	int	ind;
+	int	small;
 
 	ind = 1;
 	small = stack_a->content;
@@ -72,7 +83,7 @@ int	index100(t_list *stack_a, int key)
 			ind++;
 		}
 		else
-			return(ind);
+			return (ind);
 		small = stack_a->content;
 	}
 	return (ind);
@@ -80,21 +91,22 @@ int	index100(t_list *stack_a, int key)
 
 void	sort100(t_list **stack_a, t_list **stack_b, int *str)
 {
-	int len;
-	int index;
-	int j;
-	int key;
+	int	len;
+	int	index;
+	int	j;
+	int	key;
+
 	len = ft_lstsize(*stack_a);
 	while (ft_lstsize(*stack_a) != 0)
 	{
-		key = str[len / 6];
+		key = str[len / 4];
 		index = index100(*stack_a, key);
 		j = len - index + 1;
 		if (index <= (len / 2))
 			while (index-- > 1)
 				ra(stack_a);
 		else
-			while(j-- > 0)
+			while (j-- > 0)
 				rra(stack_a);
 		pb(stack_a, stack_b);
 		len = ft_lstsize(*stack_a);

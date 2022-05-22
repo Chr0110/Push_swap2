@@ -1,12 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rrb.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/22 01:03:18 by eradi-            #+#    #+#             */
+/*   Updated: 2022/05/22 01:30:40 by eradi-           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	rrb(t_list **stack_b)
 {
+	t_list	*temp;
+	t_list	*temp2;
+	t_list	*first;
+
 	if (ft_lstsize(*stack_b) == 1)
-		return;
-	t_list *temp;
-	t_list *temp2;
-	t_list *first;
+		return ;
 	temp = *stack_b;
 	while ((*stack_b)->next->next != NULL)
 		(*stack_b) = (*stack_b)->next;
@@ -16,23 +29,5 @@ void	rrb(t_list **stack_b)
 	first->next = temp;
 	temp2->next = NULL;
 	*stack_b = first;
-	printf("rrb\n");
+	write(1, "rrb\n", 4);
 }
-
-// int main (int ac, char **av)
-// {
-//     t_list *stack_b;
-//     int i = 1;
-//     if (ac > 1)
-//     {
-//         while (i < ac)
-//         {
-//             ft_creatlst(&stack_b, atoi(av[i]));
-//             i++;
-//         }
-//     }
-//     else
-//         return (0);
-//     rra(&stack_b);
-//     ft_print(stack_b);
-// }

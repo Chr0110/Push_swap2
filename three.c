@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   three.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/22 01:03:55 by eradi-            #+#    #+#             */
+/*   Updated: 2022/05/22 01:04:30 by eradi-           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void    three(t_list **stack_a)
+void	three(t_list **stack_a)
 {
-	int    first;
-	int    second;
-	int    last;
+	int	first;
+	int	second;
+	int	last;
 
 	first = (*stack_a)->content;
 	second = (*stack_a)->next->content;

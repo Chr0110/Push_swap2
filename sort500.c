@@ -1,11 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort500.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/22 01:03:32 by eradi-            #+#    #+#             */
+/*   Updated: 2022/05/22 01:28:11 by eradi-           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	index500again(t_list *stack_b)
 {
-	int max;
-	int ind;
-	t_list *x;
-	t_list *temp;
+	int		max;
+	int		ind;
+	t_list	*x;
+	t_list	*temp;
+
 	ind = 1;
 	temp = stack_b;
 	max = (stack_b)->content;
@@ -30,9 +43,9 @@ int	index500again(t_list *stack_b)
 
 void	sort500again(t_list **stack_b, t_list **stack_a)
 {
-	int len;
-	int index;
-	int j;
+	int	len;
+	int	index;
+	int	j;
 
 	len = ft_lstsize(*stack_b);
 	index = index500again(*stack_b);
@@ -44,7 +57,7 @@ void	sort500again(t_list **stack_b, t_list **stack_a)
 				rb(stack_b);
 		else
 		{
-			while(j-->0)
+			while (j-- > 0)
 				rrb(stack_b);
 		}
 		pa(stack_b, stack_a);
@@ -57,10 +70,11 @@ void	sort500again(t_list **stack_b, t_list **stack_a)
 
 int	howmuch500(t_list *stack_a, int key)
 {
-	int i;
+	int	i;
+	int	len;
+	int	small;
+
 	i = 0;
-	int len;
-	int small;
 	len = ft_lstsize(stack_a);
 	small = stack_a->content;
 	while (len != 0 && stack_a->next != NULL)
@@ -82,8 +96,8 @@ int	howmuch500(t_list *stack_a, int key)
 
 int	index500(t_list *stack_a, int key)
 {
-	int ind;
-	int small;
+	int	ind;
+	int	small;
 
 	ind = 1;
 	small = stack_a->content;
@@ -95,7 +109,7 @@ int	index500(t_list *stack_a, int key)
 			ind++;
 		}
 		else
-			return(ind);
+			return (ind);
 		small = stack_a->content;
 	}
 	return (ind);
@@ -103,10 +117,11 @@ int	index500(t_list *stack_a, int key)
 
 void	sort500(t_list **stack_a, t_list **stack_b, int *str)
 {
-	int len;
-	int index;
-	int j;
-	int key;
+	int	len;
+	int	index;
+	int	j;
+	int	key;
+
 	len = ft_lstsize(*stack_a);
 	while (ft_lstsize(*stack_a) != 0)
 	{
@@ -117,7 +132,7 @@ void	sort500(t_list **stack_a, t_list **stack_b, int *str)
 			while (index-- > 1)
 				ra(stack_a);
 		else
-			while(j-- > 0)
+			while (j-- > 0)
 				rra(stack_a);
 		pb(stack_a, stack_b);
 		len = ft_lstsize(*stack_a);

@@ -1,35 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_b.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/22 01:01:32 by eradi-            #+#    #+#             */
+/*   Updated: 2022/05/22 01:31:02 by eradi-           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void	pb(t_list **stack_a,t_list **stack_b)
+void	pb(t_list **stack_a, t_list **stack_b)
 {
+	t_list	*temp;
+
+	temp = *stack_a;
 	if (!(*stack_a))
 		return ;
-	t_list *temp;
-	temp = *stack_a;
 	(*stack_a) = (*stack_a)->next;
 	temp->next = *stack_b;
 	*stack_b = temp;
-	printf("pb\n");
+	write(1, "pb\n", 3);
 }
-
-// int main (int ac, char **av)
-// {
-// 	int i;
-// 	t_list *stack_b;
-// 	t_list *stack_a;
-// 	stack_a = NULL;
-// 	stack_b = NULL;
-// 	i = 1;
-// 	if (ac < 2)
-// 		return (0);
-// 	while (i < ac)
-// 	{
-// 		ft_creatlst(&stack_a, atoi(av[i]));
-// 		i++;
-// 	}
-// 	ft_pb(&stack_a,&stack_b);
-// 	ft_pb(&stack_a,&stack_b);
-// 	ft_pb(&stack_a,&stack_b);
-// 	ft_print(stack_b);
-// 	return (0);
-// }
