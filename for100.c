@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:00:46 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/23 02:28:54 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/23 03:47:36 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,33 +41,6 @@ int	index100again(t_list *stack_b)
 	return (ind);
 }
 
-// void	sort100again(t_list **stack_b, t_list **stack_a)
-// {
-// 	int	len;
-// 	int	index;
-// 	int	j;
-
-// 	len = ft_lstsize(*stack_b);
-// 	index = index100again(*stack_b);
-// 	while (len > 1)
-// 	{
-// 		j = len - index + 1;
-// 		if (index <= (len / 2))
-// 			while (index-- > 1)
-// 				rb(stack_b);
-// 		else
-// 		{
-// 			while (j-- > 0)
-// 				rrb(stack_b);
-// 		}
-// 		pa(stack_b, stack_a);
-// 		len = ft_lstsize(*stack_b);
-// 		index = index100again(*stack_b);
-// 	}	
-// 	pa(stack_b, stack_a);
-// 	return ;
-// }
-
 int	max_in_100(t_list *stack_b)
 {
 	int		max;
@@ -101,7 +74,6 @@ void	sort100again(t_list **stack_b, t_list **stack_a)
 	while (ft_lstsize(*stack_b))
 	{
 		max = max_in_100(*stack_b);
-		//printf("%d\n", max);
 		if (k == 0)
 		{
 			if ((*stack_b)->content != max)
@@ -115,36 +87,30 @@ void	sort100again(t_list **stack_b, t_list **stack_a)
 		}
 		else if ((*stack_b)->content == max)
 		{
-			if( max < ft_lstlast(*stack_a)->content)
+			while (!(k == 0 || ft_lstlast(*stack_a)->content < (*stack_b)->content))
 			{
-				while(k > 0)
-				{
-					rra(stack_a);
-					k--;
-				}
-				pa(stack_b, stack_a);
+				rra(stack_a);
+				k--;
 			}
-			else
-				pa(stack_b, stack_a);
+			pa(stack_b, stack_a);
 		}
-		else
+		else if ((*stack_b)->content != max)
 		{
-			if ((*stack_b)->content < ft_lstlast(*stack_a)->content)
-			{
-				index = index100again(*stack_b);
-				if (index < (ft_lstsize(*stack_b) / 2))
-					rb(stack_b);
-				else
-					rrb(stack_b);
-			}
-			else
+			if ((*stack_b)->content > ft_lstlast(*stack_a)->content)
 			{
 				pa(stack_b, stack_a);
 				ra(stack_a);
 				k++;
 			}
+			else
+			{
+				index = index100again(*stack_b);
+				if (index <= (ft_lstsize(*stack_b) / 2))
+					rb(stack_b);
+				else
+					rrb(stack_b);
+			}
 		}
-		printf("%d\n", k);
 	}
 	while (k)
 	{
@@ -197,8 +163,5 @@ void	sort100(t_list **stack_a, t_list **stack_b, int *str)
 		pb(stack_a, stack_b);
 		len = ft_lstsize(*stack_a);
 	}
-	ft_print(*stack_b);
-	printf("wa zaaaaaaaaaabi\n");
 	sort100again(stack_b, stack_a);
-	ft_print(*stack_a);
 }
