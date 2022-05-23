@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:00:46 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/23 03:47:36 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/23 05:00:04 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,9 @@ int	max_in_100(t_list *stack_b)
 	int		max;
 	int		ind;
 	t_list	*x;
-	t_list	*temp;	ind = 1;
+	t_list	*temp;
+
+	ind = 1;
 	temp = stack_b;
 	max = (stack_b)->content;
 	while (ft_lstsize(stack_b) != 1)
@@ -63,59 +65,31 @@ int	max_in_100(t_list *stack_b)
 	return (max);
 }
 
-void	sort100again(t_list **stack_b, t_list **stack_a)
+void	sort100again(t_list **stack_b, t_list **stack_a, t_ind *ind)
 {
-	int max;
-	int k;
-	int index;
-
-	index = 0;
-	k = 0;
+	ind->k = 0;
 	while (ft_lstsize(*stack_b))
 	{
-		max = max_in_100(*stack_b);
-		if (k == 0)
+		if (ind->k == 0)
 		{
-			if ((*stack_b)->content != max)
+			if ((*stack_b)->content != max_in_100(*stack_b))
 			{
 				pa(stack_b, stack_a);
 				ra(stack_a);
-				k++;
+				ind->k++;
 			}
 			else
 				pa(stack_b, stack_a);
 		}
-		else if ((*stack_b)->content == max)
-		{
-			while (!(k == 0 || ft_lstlast(*stack_a)->content < (*stack_b)->content))
-			{
-				rra(stack_a);
-				k--;
-			}
-			pa(stack_b, stack_a);
-		}
-		else if ((*stack_b)->content != max)
-		{
-			if ((*stack_b)->content > ft_lstlast(*stack_a)->content)
-			{
-				pa(stack_b, stack_a);
-				ra(stack_a);
-				k++;
-			}
-			else
-			{
-				index = index100again(*stack_b);
-				if (index <= (ft_lstsize(*stack_b) / 2))
-					rb(stack_b);
-				else
-					rrb(stack_b);
-			}
-		}
+		else if ((*stack_b)->content == max_in_100(*stack_b))
+			max_last_a(stack_a, stack_b, ind);
+		else
+			not_max_last_a(stack_a, stack_b, ind);
 	}
-	while (k)
+	while (ind->k)
 	{
 		rra(stack_a);
-		k--;
+		ind->k--;
 	}
 }
 
@@ -140,7 +114,7 @@ int	index100(t_list *stack_a, int key)
 	return (ind);
 }
 
-void	sort100(t_list **stack_a, t_list **stack_b, int *str)
+void	sort100(t_list **stack_a, t_list **stack_b, int *str, t_ind *ind)
 {
 	int	len;
 	int	index;
@@ -163,5 +137,5 @@ void	sort100(t_list **stack_a, t_list **stack_b, int *str)
 		pb(stack_a, stack_b);
 		len = ft_lstsize(*stack_a);
 	}
-	sort100again(stack_b, stack_a);
+	sort100again(stack_b, stack_a, ind);
 }

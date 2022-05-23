@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:03:32 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/22 01:28:11 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/23 05:06:44 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,57 +41,56 @@ int	index500again(t_list *stack_b)
 	return (ind);
 }
 
-void	sort500again(t_list **stack_b, t_list **stack_a)
+int	max_in_500(t_list *stack_b)
 {
-	int	len;
-	int	index;
-	int	j;
+	int		max;
+	int		ind;
+	t_list	*x;
+	t_list	*temp;
 
-	len = ft_lstsize(*stack_b);
-	index = index500again(*stack_b);
-	while (len > 1)
+	ind = 1;
+	temp = stack_b;
+	max = (stack_b)->content;
+	while (ft_lstsize(stack_b) != 1)
 	{
-		j = len - index + 1;
-		if (index <= (len / 2))
-			while (index-- > 1)
-				rb(stack_b);
-		else
+		x = (stack_b)->next;
+		if (max <= x->content)
 		{
-			while (j-- > 0)
-				rrb(stack_b);
+			max = x->content;
+			stack_b = stack_b->next;
 		}
-		pa(stack_b, stack_a);
-		len = ft_lstsize(*stack_b);
-		index = index500again(*stack_b);
-	}	
-	pa(stack_b, stack_a);
-	return ;
+		else
+			stack_b = stack_b->next;
+	}
+	return (max);
 }
 
-int	howmuch500(t_list *stack_a, int key)
+void	sort500again(t_list **stack_b, t_list **stack_a, t_ind *ind)
 {
-	int	i;
-	int	len;
-	int	small;
-
-	i = 0;
-	len = ft_lstsize(stack_a);
-	small = stack_a->content;
-	while (len != 0 && stack_a->next != NULL)
+	ind->k = 0;
+	while (ft_lstsize(*stack_b))
 	{
-		if (small > key)
-			stack_a = stack_a->next;
-		else
+		if (ind->k == 0)
 		{
-			stack_a = stack_a->next;
-			i++;
+			if ((*stack_b)->content != max_in_500(*stack_b))
+			{
+				pa(stack_b, stack_a);
+				ra(stack_a);
+				ind->k++;
+			}
+			else
+				pa(stack_b, stack_a);
 		}
-		small = stack_a->content;
-		len--;
+		else if ((*stack_b)->content == max_in_500(*stack_b))
+			max_last_a(stack_a, stack_b, ind);
+		else
+			not_max_last_a(stack_a, stack_b, ind);
 	}
-	if (small < key)
-		i++;
-	return (i);
+	while (ind->k)
+	{
+		rra(stack_a);
+		ind->k--;
+	}
 }
 
 int	index500(t_list *stack_a, int key)
@@ -115,7 +114,7 @@ int	index500(t_list *stack_a, int key)
 	return (ind);
 }
 
-void	sort500(t_list **stack_a, t_list **stack_b, int *str)
+void	sort500(t_list **stack_a, t_list **stack_b, int *str, t_ind *ind)
 {
 	int	len;
 	int	index;
@@ -125,7 +124,8 @@ void	sort500(t_list **stack_a, t_list **stack_b, int *str)
 	len = ft_lstsize(*stack_a);
 	while (ft_lstsize(*stack_a) != 0)
 	{
-		key = str[len / 20];
+		copy(*stack_a, str);
+		key = str[len / 12];
 		index = index500(*stack_a, key);
 		j = len - index + 1;
 		if (index <= (len / 2))
@@ -136,7 +136,6 @@ void	sort500(t_list **stack_a, t_list **stack_b, int *str)
 				rra(stack_a);
 		pb(stack_a, stack_b);
 		len = ft_lstsize(*stack_a);
-		copy(*stack_a, str);
 	}
-	sort500again(stack_b, stack_a);
+	sort500again(stack_b, stack_a, ind);
 }
