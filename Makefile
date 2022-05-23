@@ -31,6 +31,7 @@ FILES = creat_stack.c\
 		copy_to_string.c\
 		check_arg.c\
 		ft_sort_stack.c\
+		ft_print_stack.c\
 
 OBJS = $(subst .c,.o,$(FILES))
 

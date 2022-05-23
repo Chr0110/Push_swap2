@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:01:22 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/22 01:32:26 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/23 01:43:44 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ void	pa(t_list **stack_b, t_list **stack_a)
 	(*stack_b) = (*stack_b)->next;
 	temp->next = *stack_a;
 	*stack_a = temp;
-	write(1, "pa\n", 3);
+	//write(1, "pa\n", 3);
 }

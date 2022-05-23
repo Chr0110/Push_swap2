@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:01:50 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/22 01:35:08 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/22 06:28:05 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,5 @@ int		ft_strlen(char *str);
 void	copy(t_list *stack_a, int *str);
 int		ft_check_integer(char *av);
 void	ft_sort_stack(t_list *stack_a, int *str);
+int		max_in_100(t_list *stack_b);
 #endif

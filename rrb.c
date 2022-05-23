@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:03:18 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/22 01:30:40 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/23 01:43:57 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	rrb(t_list **stack_b)
 	t_list	*temp2;
 	t_list	*first;
 
-	if (ft_lstsize(*stack_b) == 1)
+	if (ft_lstsize(*stack_b) <= 1)
 		return ;
 	temp = *stack_b;
 	while ((*stack_b)->next->next != NULL)
@@ -29,5 +29,5 @@ void	rrb(t_list **stack_b)
 	first->next = temp;
 	temp2->next = NULL;
 	*stack_b = first;
-	write(1, "rrb\n", 4);
+	//write(1, "rrb\n", 4);
 }
