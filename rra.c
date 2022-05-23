@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:03:11 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/23 01:43:55 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/23 02:58:15 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ void	rra(t_list **stack_a)
 	first->next = temp;
 	temp2->next = NULL;
 	*stack_a = first;
-	//write(1, "rra\n", 4);
+	write(1, "rra\n", 4);
 }

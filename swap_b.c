@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:03:50 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/23 01:44:06 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/23 02:58:23 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ void	sb(t_list **stack_b)
 	temp2->next = temp;
 	temp->next = *stack_b;
 	*stack_b = temp2;
-	//write(1, "sb\n", 3);
+	write(1, "sb\n", 3);
 }

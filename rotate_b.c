@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:02:58 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/23 01:43:51 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/23 02:58:11 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ void	rb(t_list **stack_b)
 	last = ft_lstlast(*stack_b);
 	last->next = temp;
 	temp->next = NULL;
-	//write(1, "rb\n", 3);
+	write(1, "rb\n", 3);
 }
