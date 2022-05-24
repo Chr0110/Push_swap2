@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:01:50 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/23 05:57:06 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/24 04:21:34 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,20 @@ int		index10(t_list *stack_a);
 int		index100again(t_list *stack_b);
 int		check_sort(int ac, char **av);
 int		index100(t_list *stack_a, int key);
-void	sort100(t_list **stack_a, t_list **stack_b, int *str, t_ind *ind);
+void	sort100(t_list **stack_a, t_list **stack_b, t_ind *ind);
 void	sort100again(t_list **stack_b, t_list **stack_a, t_ind *ind);
 int		max_in_100(t_list *stack_b);
 int		index500again(t_list *stack_b);
-int		index500(t_list *stack_a, int key);
-void	sort500(t_list **stack_a, t_list **stack_b, int *str, t_ind *ind);
+//int		index500(t_list *stack_a, int key);
+int		index500(t_list *stack_a, int key, int key2);
+void	sort500(t_list **stack_a, t_list **stack_b, t_ind *ind);
 void	sort500again(t_list **stack_b, t_list **stack_a, t_ind *ind);
 int		max_in_500(t_list *stack_b);
 void	sort_string(int *str, int ac);
 int		ft_strlen(char *str);
 void	copy(t_list *stack_a, int *str);
 int		ft_check_integer(int ac, char **av);
-void	ft_sort_stack(t_list *stack_a, int *str, t_ind *ind);
 void	max_last_a(t_list **stack_a, t_list **stack_b, t_ind *ind);
 void	not_max_last_a(t_list **stack_a, t_list **stack_b, t_ind *ind);
+void	ft_sort_stack(t_list *stack_a, t_ind *ind);
 #endif

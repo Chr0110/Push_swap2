@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:01:15 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/23 05:50:15 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/23 23:26:40 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,11 @@ int	main(int ac, char **av)
 {
 	int		i;
 	t_list	*stack_a;
-	int		*str;
 	t_ind	ind;
 
 	i = 0;
+	if (check_sort(ac, av) == 1)
+		return (0);
 	if (ac > 2)
 	{
 		if (ft_dupl(ac, av) == 1 || ft_check_integer(ac, av) == 1)
@@ -72,14 +73,12 @@ int	main(int ac, char **av)
 		}
 		while (++i < ac)
 			ft_creatlst(&stack_a, atoi(av[i]));
-		str = malloc(ft_lstsize(stack_a) * sizeof(int));
-		copy(stack_a, str);
 		if (ft_lstsize(stack_a) == 2)
 		{
 			two(&stack_a);
 			return (0);
 		}
-		ft_sort_stack(stack_a, str, &ind);
+		ft_sort_stack(stack_a, &ind);
 	}
 	return (0);
 }

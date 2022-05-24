@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 00:59:06 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/23 05:56:54 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/23 23:18:27 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,20 @@ int	ft_dupl(int ac, char **av)
 
 int	check_sort(int ac, char **av)
 {
-	int min;
-	int i = 0;
-	min = atoi(av[i]);
-	while (i < ac)
+	int	min;
+	int	i;
+	int	j;
+
+	j = 2;
+	i = 1;
+	while (j < ac)
 	{
-		if (min > atoi(av[i + 1]))
-			return (1);
+		min = atoi(av[i]);
+		if (min > atoi(av[j]))
+			return (0);
 		else
-			min = atoi(av[i + 1]);
+			i++;
+		j = i + 1;
 	}
-	return (0);
+	return (1);
 }
