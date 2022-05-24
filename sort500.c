@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:03:32 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/24 04:23:31 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/24 05:21:40 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,18 +100,18 @@ int	index500(t_list *stack_a, int first, int last)
 
 	ind = 1;
 	small = stack_a->content;
-	while (ft_lstsize(stack_a) != 1)
+	while (stack_a->next != NULL)
 	{
 		if (small > last || small < first)
-		{
 			stack_a = stack_a->next;
-			ind++;
-		}
 		else if (small <= last && small >= first)
-			return (ind);
+		{
+			ind++;
+			stack_a = stack_a->next;
+		}
 		small = stack_a->content;
 	}
-	return (0);
+	return (ind);
 }
 
 void	sort500(t_list** stack_a, t_list **stack_b, t_ind *ind)
@@ -119,38 +119,35 @@ void	sort500(t_list** stack_a, t_list **stack_b, t_ind *ind)
 	int	first;
 	int	last;
 	int	key;
-	int index;
 	int *str;
-	int j = 0;
 	int len = ft_lstsize(*stack_a);
 	int key2;
 	str = malloc(ft_lstsize(*stack_a) * sizeof(int));
 	copy(*stack_a, str);
+	key = 50;
 	while(ft_lstsize(*stack_a))
 	{
-		key = 35;
-		if (key > (len / 2))
-			key = len / 2;
-		key2 = key * 2;
-		while(--key2 >= 0)
+		key2 = index500(*stack_a, first, last);
+		if (key2 == 1)
 		{
+			key = key + 50;
 			last = str[(len / 2) + key];
 			first = str[(len / 2) - key];
-			index = index500(*stack_a, first, last);
-			j = len - index + 1;
-			if (index <= (len / 2))
-				while (index-- > 1)
-					ra(stack_a);
-			else
-				while (j-- > 0)
-					rra(stack_a);
-			pb(stack_a, stack_b);
-			if ((*stack_b)->content > str[len / 2])
-				rb(stack_b);	
 		}
-		len = ft_lstsize(*stack_a);
-		copy(*stack_a, str);		
+		if (key > (len / 2))
+			key = len / 2;
+		if ((*stack_a)->content > last || (*stack_a)->content < first)
+			ra(stack_a);
+		else if ((*stack_a)->content <= last && (*stack_a)->content >= first)
+		{
+			pb(stack_a, stack_b);
+			key2--;
+			if ((*stack_b)->content > str[len / 2])
+				rb(stack_b);
+		}
+		len = ft_lstsize(*stack_a);	
 	}
+	printf("%d\n", index500(*stack_a, first, last));
 	sort500again(stack_b, stack_a, ind);
-	//ft_print(*stack_b);
+	ft_print(*stack_b);
 }
