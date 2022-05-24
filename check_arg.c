@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 00:59:06 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/23 23:18:27 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/24 10:45:22 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,21 @@ int	check_sort(int ac, char **av)
 		j = i + 1;
 	}
 	return (1);
+}
+
+int	ft_check_max(int ac, char **av)
+{
+	int	i;
+
+	i = 1;
+	while (i < ac)
+	{
+		if (ft_atoi(av[i]) == 1)
+		{
+			printf("%d\n", ft_atoi(av[i]));
+			return (1);
+		}
+		i++;
+	}
+	return (0);
 }

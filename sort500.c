@@ -6,40 +6,11 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:03:32 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/24 09:47:57 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/24 10:42:06 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	index500again(t_list *stack_b)
-{
-	int		max;
-	int		ind;
-	t_list	*x;
-	t_list	*temp;
-
-	ind = 1;
-	temp = stack_b;
-	max = (stack_b)->content;
-	while (ft_lstsize(stack_b) != 1)
-	{
-		x = (stack_b)->next;
-		if (max <= x->content)
-		{
-			max = x->content;
-			stack_b = stack_b->next;
-		}
-		else
-			stack_b = stack_b->next;
-	}
-	while (max != temp->content)
-	{
-		ind++;
-		temp = temp->next;
-	}
-	return (ind);
-}
 
 int	max_in_500(t_list *stack_b)
 {
@@ -93,34 +64,14 @@ void	sort500again(t_list **stack_b, t_list **stack_a, t_ind *ind)
 	}
 }
 
-void	first_and_last(t_list *stack_a, int *str, t_ind *ind)
+void	sort500(t_list **stack_a, t_list **stack_b, int *str, t_ind *ind)
 {
-	int len;
+	int	len;
 
-	str = malloc(ft_lstsize(stack_a) * sizeof(stack_a));
-	len = ft_lstsize(stack_a);
-	copy(stack_a, str);
-	if (20 > (len / 2))
-	{
-		ind->first = str[0];
-		ind->last = str[len - 1];
-	}
-	else
-	{
-		ind->first = str[(len / 2) - 20];
-		ind->last = str[(len / 2) + 20];
-	}
-}
-void sort500(t_list **stack_a, t_list **stack_b, int *str, t_ind *ind)
-{
-	int len;
-	int key2;
-	ind->first = 0;
-	ind->last = 0;
 	str = malloc(ft_lstsize(*stack_a) * sizeof(stack_a));
 	len = ft_lstsize(*stack_a);
 	copy(*stack_a, str);
-	key2 = str[len / 2];
+	ind->half_lengh = str[len / 2];
 	while (ft_lstsize(*stack_a))
 	{
 		if (20 > (len / 2))
@@ -133,17 +84,9 @@ void sort500(t_list **stack_a, t_list **stack_b, int *str, t_ind *ind)
 			ind->first = str[(len / 2) - 20];
 			ind->last = str[(len / 2) + 20];
 		}
-		if ((*stack_a)->content >= ind->first && (*stack_a)->content <= ind->last)
-		{
-			pb(stack_a, stack_b);
-			if ((*stack_b)->content < key2)
-				rb(stack_b);
-		}
-		else if ((*stack_a)->content < ind->first || (*stack_a)->content > ind->last)
-			ra(stack_a);
+		push_to_b(stack_a, stack_b, ind);
 		len = ft_lstsize(*stack_a);
 		copy((*stack_a), str);
 	}
 	sort500again(stack_b, stack_a, ind);
-	ft_print(*stack_a);
 }

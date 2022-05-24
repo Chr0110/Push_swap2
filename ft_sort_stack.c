@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:01:08 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/24 09:39:00 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/24 10:14:00 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_sort_stack(t_list *stack_a, t_ind *ind)
 {
 	t_list	*stack_b;
-	int *str;
+	int		*str;
 
 	str = NULL;
 	stack_b = NULL;
@@ -27,11 +27,11 @@ void	ft_sort_stack(t_list *stack_a, t_ind *ind)
 			pa(&stack_b, &stack_a);
 		return ;
 	}
-	// else if (ft_lstsize(stack_a) <= 100)
-	// {
-	// 	sort100(&stack_a, &stack_b, str, ind);
-	// 	return ;
-	// }
+	else if (ft_lstsize(stack_a) <= 100)
+	{
+		sort100(&stack_a, &stack_b, str, ind);
+		return ;
+	}
 	else if (ft_lstsize(stack_a) > 100)
 	{
 		sort500(&stack_a, &stack_b, str, ind);

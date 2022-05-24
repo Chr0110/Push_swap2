@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:01:15 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/23 23:26:40 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/24 10:50:21 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ int	main(int ac, char **av)
 	t_ind	ind;
 
 	i = 0;
-	if (check_sort(ac, av) == 1)
-		return (0);
 	if (ac > 2)
 	{
 		if (ft_dupl(ac, av) == 1 || ft_check_integer(ac, av) == 1)
@@ -71,8 +69,10 @@ int	main(int ac, char **av)
 			write(1, "ERROR\n", 6);
 			return (0);
 		}
+		if (check_sort(ac, av) == 1)
+			return (0);
 		while (++i < ac)
-			ft_creatlst(&stack_a, atoi(av[i]));
+			ft_creatlst(&stack_a, ft_atoi(av[i]));
 		if (ft_lstsize(stack_a) == 2)
 		{
 			two(&stack_a);

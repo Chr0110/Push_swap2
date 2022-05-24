@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:00:46 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/24 09:26:11 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/24 10:15:06 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,60 +93,40 @@ void	sort100again(t_list **stack_b, t_list **stack_a, t_ind *ind)
 	}
 }
 
-int	index100(t_list *stack_a, int key)
+void	push_to_b(t_list **stack_a, t_list **stack_b, t_ind *ind)
 {
-	int	ind;
-	int	small;
-
-	ind = 1;
-	small = stack_a->content;
-	while (ft_lstsize(stack_a) != 1)
+	if ((*stack_a)->content >= ind->first && (*stack_a)->content <= ind->last)
 	{
-		if (small >= key)
-		{
-			stack_a = stack_a->next;
-			ind++;
-		}
-		else
-			return (ind);
-		small = stack_a->content;
+		pb(stack_a, stack_b);
+		if ((*stack_b)->content < ind->half_lengh)
+			rb(stack_b);
 	}
-	return (ind);
+	else if ((*stack_a)->content < ind->first
+		|| (*stack_a)->content > ind->last)
+		ra(stack_a);
 }
 
-void sort100(t_list **stack_a, t_list **stack_b, t_ind *ind, int *str)
+void	sort100(t_list **stack_a, t_list **stack_b, int *str, t_ind *ind)
 {
-	int len;
-	int last;
-	int first;
-	ind->k = 0;
+	int	len;
+
 	str = malloc(ft_lstsize(*stack_a) * sizeof(stack_a));
 	len = ft_lstsize(*stack_a);
 	copy(*stack_a, str);
-	int key2 = str[len / 2];
-	int key = 8;
+	ind->half_lengh = str[len / 2];
 	while (ft_lstsize(*stack_a))
 	{
-		if (key > (len / 2))
+		if (8 > (len / 2))
 		{
-			first = str[0];
-			last = str[len - 1];
+			ind->first = str[0];
+			ind->last = str[len - 1];
 		}
 		else
 		{
-			first = str[(len / 2) - key];
-			last = str[(len / 2) + key];
+			ind->first = str[(len / 2) - 8];
+			ind->last = str[(len / 2) + 8];
 		}
-		if ((*stack_a)->content >= first && (*stack_a)->content <= last)
-		{
-			pb(stack_a, stack_b);
-			if ((*stack_b)->content < key2)
-				rb(stack_b);
-		}
-		else if ((*stack_a)->content < first || (*stack_a)->content > last)
-		{
-			ra(stack_a);
-		}
+		push_to_b(stack_a, stack_b, ind);
 		len = ft_lstsize(*stack_a);
 		copy((*stack_a), str);
 	}
