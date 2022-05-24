@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:00:46 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/23 23:30:46 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/24 09:26:11 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,30 +114,41 @@ int	index100(t_list *stack_a, int key)
 	return (ind);
 }
 
-void	sort100(t_list **stack_a, t_list **stack_b, t_ind *ind)
+void sort100(t_list **stack_a, t_list **stack_b, t_ind *ind, int *str)
 {
-	int	len;
-	int	index;
-	int	j;
-	int	key;
-	int	*str;
-
-	str = malloc(ft_lstsize(*stack_a) * sizeof(int));
+	int len;
+	int last;
+	int first;
+	ind->k = 0;
+	str = malloc(ft_lstsize(*stack_a) * sizeof(stack_a));
 	len = ft_lstsize(*stack_a);
-	while (ft_lstsize(*stack_a) != 0)
+	copy(*stack_a, str);
+	int key2 = str[len / 2];
+	int key = 8;
+	while (ft_lstsize(*stack_a))
 	{
-		copy(*stack_a, str);
-		key = str[len / 4];
-		index = index100(*stack_a, key);
-		j = len - index + 1;
-		if (index <= (len / 2))
-			while (index-- > 1)
-				ra(stack_a);
+		if (key > (len / 2))
+		{
+			first = str[0];
+			last = str[len - 1];
+		}
 		else
-			while (j-- > 0)
-				rra(stack_a);
-		pb(stack_a, stack_b);
+		{
+			first = str[(len / 2) - key];
+			last = str[(len / 2) + key];
+		}
+		if ((*stack_a)->content >= first && (*stack_a)->content <= last)
+		{
+			pb(stack_a, stack_b);
+			if ((*stack_b)->content < key2)
+				rb(stack_b);
+		}
+		else if ((*stack_a)->content < first || (*stack_a)->content > last)
+		{
+			ra(stack_a);
+		}
 		len = ft_lstsize(*stack_a);
+		copy((*stack_a), str);
 	}
 	sort100again(stack_b, stack_a, ind);
 }
