@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:01:15 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/24 10:50:21 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/27 02:34:42 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	main(int ac, char **av)
 	{
 		if (ft_dupl(ac, av) == 1 || ft_check_integer(ac, av) == 1)
 		{
-			write(1, "ERROR\n", 6);
+			write(1, "Error\n", 6);
 			return (0);
 		}
 		if (check_sort(ac, av) == 1)

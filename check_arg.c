@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 00:59:06 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/24 10:45:22 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/27 02:57:29 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,27 @@
 int	ft_check_integer(int ac, char **av)
 {
 	int	i;
-	int	j;
+	int	x;
 
-	j = 0;
-	i = 1;
-	while (i < ac)
+	x = -1;
+	i = 0;
+	while (++i < ac)
 	{
-		j = ft_strlen(av[i]);
-		while (j-- > 0)
+		while (++x < ft_strlen(av[i]))
 		{
-			if (!((av[i][j] >= '0' && av[i][j] <= '9') || av[i][j] == '-'
-				|| av[i][j] == '+'))
+			// if ((ft_strlen(av[i]) == 1) && (av[i][0] > '0' && av[i][0] < '9'))
+			// 	return (1);
+			// if ((av[i][0] == '-' || av[i][0] == '+') && (av[i][1] > '0'
+			// 	|| av[i][1] < '9'))
+			// 	return (1);
+			if ((av[i][x] >= '0' && av[i][x] <= '9') && (av[i][x + 1] == '-'
+				|| av[i][x + 1] == '+'))
+				return (1);
+			if (!((av[i][x] >= '0' && av[i][x] <= '9') ||
+				(av[i][x] == '-' || av[i][x] == '+')))
 				return (1);
 		}
-		i++;
+		x = -1;
 	}
 	return (0);
 }
@@ -72,21 +79,4 @@ int	check_sort(int ac, char **av)
 		j = i + 1;
 	}
 	return (1);
-}
-
-int	ft_check_max(int ac, char **av)
-{
-	int	i;
-
-	i = 1;
-	while (i < ac)
-	{
-		if (ft_atoi(av[i]) == 1)
-		{
-			printf("%d\n", ft_atoi(av[i]));
-			return (1);
-		}
-		i++;
-	}
-	return (0);
 }

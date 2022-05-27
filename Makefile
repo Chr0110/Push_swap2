@@ -39,7 +39,7 @@ OBJS = $(subst .c,.o,$(FILES))
 
 all : $(NAME)
 $(NAME) : $(OBJS)
-	$(CC) -fsanitize=address -g3 -o $(NAME) $(OBJECT)
+	$(CC) -o $(NAME) $(OBJECT)
 
 clean :
 	$(RM) $(OBJECT)
