@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:00:05 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/22 01:15:07 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/28 00:38:06 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,12 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	return ;
 }
 
-void	ft_creatlst(t_list **stack_a, int t)
+void	ft_creatlst(t_list **stack_a, int t, t_garbage **g)
 {
 	t_list	*new;
 
 	new = malloc(sizeof(t_list));
+	garbage(g, new);
 	new->content = t;
 	new->next = NULL;
 	ft_lstadd_back(stack_a, new);

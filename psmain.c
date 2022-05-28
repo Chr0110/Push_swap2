@@ -6,16 +6,20 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:01:15 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/27 02:34:42 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/28 01:04:21 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print(void)
+void	garbage(t_garbage **garbage, void *address)
 {
-	write(1, "ERROR\n", 6);
-	return ;
+	t_garbage	*new;
+
+	new = (t_garbage *)malloc(sizeof(t_garbage));
+	new->next = *(garbage);
+	new->garb = address;
+	*garbage = new;
 }
 
 void	sort_string(int *str, int ac)
@@ -57,12 +61,13 @@ int	ft_strlen(char *str)
 
 int	main(int ac, char **av)
 {
-	int		i;
-	t_list	*stack_a;
-	t_ind	ind;
+	int			i;
+	t_list		*stack_a;
+	t_ind		ind;
+	t_garbage	*grb;
 
 	i = 0;
-	if (ac > 2)
+	if (ac > 1)
 	{
 		if (ft_dupl(ac, av) == 1 || ft_check_integer(ac, av) == 1)
 		{
@@ -72,7 +77,7 @@ int	main(int ac, char **av)
 		if (check_sort(ac, av) == 1)
 			return (0);
 		while (++i < ac)
-			ft_creatlst(&stack_a, ft_atoi(av[i]));
+			ft_creatlst(&stack_a, ft_atoi(av[i]), &grb);
 		if (ft_lstsize(stack_a) == 2)
 		{
 			two(&stack_a);

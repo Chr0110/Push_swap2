@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:01:50 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/27 03:04:37 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/28 00:59:09 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+typedef struct s_garbage
+{
+	void				*garb;
+	struct s_garbage	*next;	
+}	t_garbage;
+
 typedef struct s_ind
 {
 	int	k;
@@ -33,7 +39,7 @@ typedef struct s_ind
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_creatlst(t_list **stack_a, int t);
+void	ft_creatlst(t_list **stack_a, int t, t_garbage **g);
 int		ft_dupl(int ac, char **av);
 void	ra(t_list **stack_a);
 void	rb(t_list **stack_b);
@@ -72,4 +78,5 @@ void	first_and_last(t_list *stack_a, int *str, t_ind *ind);
 void	push_to_b(t_list **stack_a, t_list **stack_b, t_ind *ind);
 int		ft_check_max(int ac, char **av);
 int		ft_atoi(const char *str);
+void	garbage(t_garbage **garbage, void *address);
 #endif

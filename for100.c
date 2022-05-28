@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:00:46 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/27 03:04:52 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/27 22:07:37 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,5 +130,6 @@ void	sort100(t_list **stack_a, t_list **stack_b, int *str, t_ind *ind)
 		len = ft_lstsize(*stack_a);
 		copy((*stack_a), str);
 	}
+	free(str);
 	sort100again(stack_b, stack_a, ind);
 }

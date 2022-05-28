@@ -1,6 +1,6 @@
 NAME = push_swap
 
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS =  -Wall -Wextra -Werror 
 
 RM = rm -f
 
@@ -39,7 +39,7 @@ OBJS = $(subst .c,.o,$(FILES))
 
 all : $(NAME)
 $(NAME) : $(OBJS)
-	$(CC) -o $(NAME) $(OBJECT)
+	$(CC)  -o $(NAME) $(OBJECT)
 
 clean :
 	$(RM) $(OBJECT)

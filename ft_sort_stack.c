@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:01:08 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/27 02:09:40 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/28 00:59:27 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	ft_sort_stack(t_list *stack_a, t_ind *ind)
 		three(&stack_a);
 		while (ft_lstsize(stack_b) != 0)
 			pa(&stack_b, &stack_a);
-		ft_print(stack_a);
 		return ;
 	}
 	else if (ft_lstsize(stack_a) <= 100)
