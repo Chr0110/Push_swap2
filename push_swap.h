@@ -6,7 +6,7 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:01:50 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/28 00:59:09 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/28 02:00:25 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_list
 typedef struct s_garbage
 {
 	void				*garb;
-	struct s_garbage	*next;	
+	struct s_garbage	*next;
 }	t_garbage;
 
 typedef struct s_ind

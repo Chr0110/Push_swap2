@@ -6,19 +6,19 @@
 /*   By: eradi- <eradi-@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 01:01:15 by eradi-            #+#    #+#             */
-/*   Updated: 2022/05/28 01:04:21 by eradi-           ###   ########.fr       */
+/*   Updated: 2022/05/28 02:32:56 by eradi-           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	garbage(t_garbage **garbage, void *address)
+void	garbage(t_garbage **garbage, void *node)
 {
 	t_garbage	*new;
 
-	new = (t_garbage *)malloc(sizeof(t_garbage));
+	new = malloc(sizeof(t_garbage));
 	new->next = *(garbage);
-	new->garb = address;
+	new->garb = node;
 	*garbage = new;
 }
 
